@@ -8,20 +8,21 @@ do {
     destino = destino.toLowerCase()
 
 if (destino === "can") {
-    //alert ("eligió Cañuelas")
+    console.log("eligió Cañuelas")
     break
 } else if (destino=== "caba") {
-    //alert ("eligió Capital Federal")
+    console.log("eligió Capital Federal")
     break
 
 }else{
     alert (`Debe seleccionar entre la opciones disponibles
                 - CAN 
                 - CABA`)
+    console.log("Seleccione can o caba")
 }
     
 } while (destino!=="can" || destino!=="caba"); 
-alert(`mostrar eleccion ${destino}`)
+console.log(`ingresó ${destino}`)
 
 // Dia - Al ingresar el dia de la reserva, el dia debe ser mayor
 // a hoy y menor a 30 dias con respecto a la fecha de hoy.
@@ -42,13 +43,16 @@ do {
     horario = prompt(`Ingrese el horario en el que desea viajar ${horariosViaje}`)
 
     if ((destino ==="can") && (horario ==="10" || horario ==="14" || horario ==="18") ) {
-        alert(`Destino Canuelas a las ${horario} hs`)
+        console.log(`Destino Canuelas a las ${horario} hs`)
+        //alert(`Destino Canuelas a las ${horario} hs`)
         horarioOk = true
     } else if ((destino ==="caba") && (horario ==="8" || horario ==="11" || horario ==="15")) {
-        alert(`Destino Capital Federal a las ${horario} hs`)
+        console.log(`Destino Capital Federal a las ${horario} hs`)
+        //alert(`Destino Capital Federal a las ${horario} hs`)
         horarioOk = true
     }else{
-        alert("El horario ingresado no es válido")
+        console.log("El horario ingresado no es válido")
+        //alert("El horario ingresado no es válido")
         horarioOk = false
     }
 } while (horarioOk === false);
@@ -62,15 +66,48 @@ do {
     nombre = prompt("Por favor ingrese su nombre y apellido")
 
     if (nombre!=="" && isNaN(nombre)) {
-        alert ("datos ok")
+        console.log("datos ok")
+        //alert ("datos ok")
         datosOk = true
         
     } else {
-        alert("datos mal ingresados")
+        console.log("datos inválidos")
+        //alert("datos mal ingresados")
         datosOk = false
     }
     
 } while (datosOk===false);
 
-//let dni
-//dni = prompt("Por favor ingrese su dni (sin puntos)")
+let dni
+let dniOk
+
+do {
+    dni = prompt("Por favor ingrese su dni (sin puntos)")
+
+    if ((dni!=="") && (dni.length<9)&& !isNaN(dni)) {
+        console.log("dni bien ingresado")
+        dniOk = true
+    } else {
+        console.log("dni mal ingresado")
+        dniOk = false
+    }
+
+} while (dniOk === false);
+
+let destinotxt
+
+if (destino==="can") {
+    destinotxt = "Cañuelas"
+    
+} else if (destino==="caba") {
+    destinotxt = "Capital Federal"
+}
+
+alert (`
+        Detalle de la reserva:
+        - Destino: ${destinotxt}
+        - Horario: ${horario} hs
+        
+        Datos del pasajero:
+        - Nombre: ${nombre}
+        - DNI: ${dni}`)
