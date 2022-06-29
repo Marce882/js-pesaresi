@@ -1,7 +1,3 @@
-function saludar(params) {
-    
-}
-
 // Destinos
 let destino
 
@@ -60,9 +56,21 @@ do {
 // Datos de pasajero
 
 let nombre
-let dni
+let datosOk
 
 do {
     nombre = prompt("Por favor ingrese su nombre y apellido")
-    dni = prompt("Por favor ingrese su dni (sin puntos)")
-} while (condition);
+
+    if (nombre!=="" && isNaN(nombre)) {
+        alert ("datos ok")
+        datosOk = true
+        
+    } else {
+        alert("datos mal ingresados")
+        datosOk = false
+    }
+    
+} while (datosOk===false);
+
+//let dni
+//dni = prompt("Por favor ingrese su dni (sin puntos)")
