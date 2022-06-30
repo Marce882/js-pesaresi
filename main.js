@@ -27,6 +27,15 @@ console.log(`ingresó ${destino}`)
 // Dia - Al ingresar el dia de la reserva, el dia debe ser mayor
 // a hoy y menor a 30 dias con respecto a la fecha de hoy.
 
+let diaViaje
+let diaViajeOk
+
+do {
+    diaViaje = prompt("Ingrese el dia que desea viajar (dd/mm/aaaa)")
+    diaViajeOk = true
+
+} while (diaViajeOk === false);
+
 // Horarios (Destino Canuelas: 10hs, 14hs, 18hs) (Destino Capital Federal: 8hs, 11hs, 15hs)
 
 if (destino==="can") {
@@ -106,6 +115,7 @@ if (destino==="can") {
 alert (`
         Detalle de la reserva:
         - Destino: ${destinotxt}
+        - Dia: ${diaViaje}
         - Horario: ${horario} hs
         
         Datos del pasajero:
