@@ -1,8 +1,33 @@
+/*function saludar(){
+    let hora = new Date()
+
+
+
+}*/
+
+let ejemploHora = new Date()
+
+let hora = ejemploHora.getHours()
+console.log(hora)
+
+if (hora < 5 || hora >20) {
+    saludo = "Buenas noches, "
+    
+} else if (hora >4 && hora < 13){
+    saludo = "Buenos dias, "
+    
+} else if (hora >12 && hora <21){
+    saludo = "Buenas tardes, "
+
+}
+
+console.log(saludo)
+
 // Destinos
 let destino
 
 do {
-    destino = prompt(`Ingrese el codigo de su destino
+    destino = prompt(`${saludo}ingrese el codigo de su destino
                             - Cañuelas (CAN)
                             - Capital Federal (CABA)`)
     destino = destino.toLowerCase()
