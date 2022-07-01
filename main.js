@@ -1,14 +1,10 @@
-/*function saludar(){
-    let hora = new Date()
+// Saludo
 
+function saludar(){
+    let ejemploHora = new Date()
 
-
-}*/
-
-let ejemploHora = new Date()
-
-let hora = ejemploHora.getHours()
-console.log(hora)
+    let hora = ejemploHora.getHours()
+    console.log(hora)
 
 if (hora < 5 || hora >20) {
     saludo = "Buenas noches, "
@@ -20,8 +16,28 @@ if (hora < 5 || hora >20) {
     saludo = "Buenas tardes, "
 
 }
-
 console.log(saludo)
+}
+
+// Viajes semanales
+
+function abono(viajesSem) {
+    pasaje = 600
+    if (viajesSem < 3){
+        pasaje = 600
+
+    }else if(viajesSem > 2 && viajesSem < 5){
+        pasaje = (pasaje -(pasaje*0.1))
+
+    }else if(viajesSem > 4){
+        pasaje = (pasaje -(pasaje*0.15))
+
+    }
+    console.log(`El valor de cada pasaje seria $ ${pasaje} porque usted realiza ${viajesSem} viaje/s semanales`)
+}
+
+saludar()
+//abono(5)
 
 // Destinos
 let destino
