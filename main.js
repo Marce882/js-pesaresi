@@ -18,6 +18,26 @@ if (hora < 5 || hora >20) {
 }
 console.log(saludo)
 }
+// Pasajeros
+
+const reservas = []
+
+// Grilla de viajes
+
+const grillaObj = [{origen:'Cañuelas',destino:'Capital Federal',horario:8,dia:'8/7/22'},
+                {origen:'Cañuelas',destino:'Capital Federal',horario:10,dia:'8/7/22'},
+                {origen:'Cañuelas',destino:'Capital Federal',horario:12,dia:'8/7/22'},
+                {origen:'Capital Federal',destino:'Cañuelas',horario:9,dia:'8/7/22'},
+                {origen:'Capital Federal',destino:'Cañuelas',horario:11,dia:'8/7/22'},
+                {origen:'Capital Federal',destino:'Cañuelas',horario:13,dia:'8/7/22'},
+                {origen:'Cañuelas',destino:'Capital Federal',horario:8,dia:'9/7/22'},
+                {origen:'Cañuelas',destino:'Capital Federal',horario:10,dia:'9/7/22'},
+                {origen:'Cañuelas',destino:'Capital Federal',horario:12,dia:'9/7/22'},
+                {origen:'Capital Federal',destino:'Cañuelas',horario:9,dia:'9/7/22'},
+                {origen:'Capital Federal',destino:'Cañuelas',horario:11,dia:'9/7/22'},
+                {origen:'Capital Federal',destino:'Cañuelas',horario:13,dia:'9/7/22'}] 
+
+
 
 // Viajes semanales
 
@@ -49,9 +69,19 @@ do {
     destino = destino.toLowerCase()
 
 if (destino === "can") {
+    for (const data of grillaObj) {
+        if (data.destino === 'Cañuelas'){
+            console.log (`Viajes a ${data.destino} | ${data.horario}hs | ${data.dia} `)
+        }
+    }
     console.log("eligió Cañuelas")
     break
 } else if (destino=== "caba") {
+    for (const data of grillaObj) {
+        if (data.destino === 'Capital Federal'){
+            console.log (`Viajes a ${data.destino} | ${data.horario}hs | ${data.dia} `)
+        }
+    }
     console.log("eligió Capital Federal")
     break
 
@@ -72,18 +102,18 @@ let diaViaje
 let diaViajeOk
 
 do {
-    diaViaje = prompt("Ingrese el dia que desea viajar (dd/mm/aaaa)")
+    diaViaje = prompt(`Ingrese el dia que desea viajar (dd/mm/aa)`)
     diaViajeOk = true
 
 } while (diaViajeOk === false);
 
-// Horarios (Destino Canuelas: 10hs, 14hs, 18hs) (Destino Capital Federal: 8hs, 11hs, 15hs)
+// Horarios (Destino Canuelas: 9hs, 11hs, 13hs) (Destino Capital Federal: 8hs, 10hs, 12hs)
 
 if (destino==="can") {
-    horariosViaje = "a Cañuelas: 10hs - 14hs - 18hs"
+    horariosViaje = "a Cañuelas: 9hs - 11hs - 13hs"
 
 }else if (destino ==="caba"){
-    horariosViaje = "a Capital Federal: 8hs - 11hs - 15hs"
+    horariosViaje = "a Capital Federal: 8hs - 10hs - 12hs"
 }
 
 let horario
@@ -92,11 +122,11 @@ let horarioOk
 do {
     horario = prompt(`Ingrese el horario en el que desea viajar ${horariosViaje}`)
 
-    if ((destino ==="can") && (horario ==="10" || horario ==="14" || horario ==="18") ) {
+    if ((destino ==="can") && (horario ==="9" || horario ==="11" || horario ==="13") ) {
         console.log(`Destino Canuelas a las ${horario} hs`)
         //alert(`Destino Canuelas a las ${horario} hs`)
         horarioOk = true
-    } else if ((destino ==="caba") && (horario ==="8" || horario ==="11" || horario ==="15")) {
+    } else if ((destino ==="caba") && (horario ==="8" || horario ==="10" || horario ==="12")) {
         console.log(`Destino Capital Federal a las ${horario} hs`)
         //alert(`Destino Capital Federal a las ${horario} hs`)
         horarioOk = true
@@ -152,6 +182,9 @@ if (destino==="can") {
 } else if (destino==="caba") {
     destinotxt = "Capital Federal"
 }
+
+reservas.push({destino:destinotxt,dia:diaViaje,horario:horario,pasajero:nombre,dni:dni})
+console.log(reservas[reservas.length-1])
 
 alert (`
         Detalle de la reserva:
